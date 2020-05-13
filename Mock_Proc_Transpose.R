@@ -7,10 +7,7 @@ library(dplyr)
 
 transp <- function(input,uniq_var,compare_var,transposed_column_names = 'measurement'){
   if(class(input[,uniq_var]) == "factor"){
-    print("hello")
     input[uniq_var] = sapply(input[uniq_var],as.character)
-    print('goodbye')
-    print(input)
   }
   #' input is the dataframe/data.table that you want to perform the operation on, uniq_var is the variable that you are groupying by, compare_var is the variable that is being measured in each of the groups, and transposed_colum_names is just an optional string for the user to call each of their columns (will be concatenated with an observation number, i.e. if you input 'distance', it will name the observations  'distance_1','distance_2','distance_3'...ect.)
   #list_df <- input %>% arrange(group_by(input[,uniq_var]) %>% do(newcol = t(.[compare_var])))
